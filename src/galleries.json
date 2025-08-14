@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Urban Style",
+    "description": "Capturing the essence of the city.",
+    "images": [
+      {
+        "id": "urban1",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205152/Alina_1308_00011__l0a8pd.png",
+        "alt": "Alina in an urban environment"
+      },
+      {
+        "id": "urban2",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205152/Alina_1308_00010__mtahyn.png",
+        "alt": "Alina's urban look"
+      },
+      {
+        "id": "urban3",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205152/Alina_1308_00013__jpt0qp.png",
+        "alt": "Alina in the city"
+      }
+    ]
+  },
+  {
+    "title": "Natural Portraits",
+    "description": "Beauty in its purest state.",
+    "images": [
+      {
+        "id": "portrait1",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848391/alina_new_39_omy7d5.png",
+        "alt": "Coffe break with Alina"
+      },
+      {
+        "id": "portrait2",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848236/ariana2_00042__aqwoir.png",
+        "alt": "Natural light portrait of Alina"
+      },
+      {
+        "id": "portrait3",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848220/ariana2_00003__tvhqn5.png",
+        "alt": "Good Morning with Alina"
+      }
+    ]
+  },
+  {
+    "title": "Everyday Life",
+    "description": "Spontaneous and everyday moments.",
+    "images": [
+      {
+        "id": "everyday1",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205412/NSFW_00021__bqgqu4.png",
+        "alt": "Raining day with Alina"
+      },
+      {
+        "id": "everyday2",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205412/NSFW_00021__bqgqu4.png",
+        "alt": "Raining day with Alina"
+      },
+      {
+        "id": "everyday3",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755206747/alina_3_11_lcvjqq.png",
+        "alt": "Weakup with Alina"
+      }
+    ]
+  }
+]

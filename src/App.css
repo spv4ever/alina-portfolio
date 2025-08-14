@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.main-header {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.main-header p {
+  margin: 5px 0 0;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Social Links */
+.social-links {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.social-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  color: #000;
+}
+
+/* Gallery */
+.gallery {
+  margin-bottom: 50px;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.gallery .gallery-description {
+  text-align: center;
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-item img:hover {
+  transform: scale(1.03);
+}
+
+/* Footer */
+.main-footer {
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.main-footer a {
+  color: #666;
+  text-decoration: none;
+}
+
+.main-footer a:hover {
+  text-decoration: underline;
+}
