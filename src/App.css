@@ -110,3 +110,31 @@ body {
 .main-footer a:hover {
   text-decoration: underline;
 }
+
+/* Countdown Timer Styles */
+.countdown-container {
+  text-align: center;
+  padding: 40px 20px;
+  margin: 40px 0;
+  background-color: #2c2c2c;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.countdown-text {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.countdown-timer {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.countdown-timer span {
+  padding: 0 10px;
+}

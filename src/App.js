@@ -5,12 +5,15 @@ import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import galleriesData from './galleries.json'; // Importamos los datos
 import './App.css'; // Importamos los estilos
+import AdBanner from './components/AdBanner';
+import CountdownTimer from './components/CountdownTimer';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <SocialLinks />
+      <AdBanner /> {/* <-- COLOCAR EL BANNER AQUÍ */}
       <main>
         {galleriesData.map((gallery, index) => (
           <Gallery
@@ -21,6 +24,9 @@ function App() {
           />
         ))}
       </main>
+      {/* ===> COLOCA EL CONTADOR AQUÍ <=== */}
+      <CountdownTimer />
+      <AdBanner /> {/* <-- COLOCAR EL BANNER AQUÍ */}
       <Footer />
     </div>
   );

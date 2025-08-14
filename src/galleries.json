@@ -52,7 +52,7 @@
       },
       {
         "id": "everyday2",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205412/NSFW_00021__bqgqu4.png",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205475/NSFW_00018__ipyztz.png",
         "alt": "Raining day with Alina"
       },
       {
@@ -60,6 +60,28 @@
         "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755206747/alina_3_11_lcvjqq.png",
         "alt": "Weakup with Alina"
       }
+    ]
+  },
+  {
+    "title": "Private and Secret Album",
+    "description": "The most intimate and secret photos of Alina.",
+    "images": [
+      {
+        "id": "everyday1",
+        "url": "https://placehold.co/600x400/000000/FFFFFF/png?text=Make",
+        "alt": "Available soon"
+      },
+      {
+        "id": "everyday1",
+        "url": "https://placehold.co/600x400/555555/FFFFFF/png?text=Me",
+        "alt": "Available soon"
+      },
+      {
+        "id": "everyday1",
+        "url": "https://placehold.co/600x400/222222/FFFFFF/png?text=Viral",
+        "alt": "Available soon"
+      }
+     
     ]
   }
 ]
