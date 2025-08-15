@@ -83,5 +83,43 @@
       }
      
     ]
+  },
+  {
+    "title": "Private and Secret Album - Yoga and Meditation",
+    "description": "Yoga and meditation moments of Alina.",
+    "private": true,
+    "password": "dywfkme",
+    "images": [
+      {
+        "id": "everyday1",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755237928/Alina_1308_00082__llezu4.png",
+        "alt": "Yoga and meditation moment 1"
+      },
+      {
+        "id": "everyday2",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755237926/Alina_1308_00078__kqhcar.png",
+        "alt": "Yoga and meditation moment 2"
+      },
+      {
+        "id": "everyday3",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755237925/Alina_1308_00080__lqymx7.png",
+        "alt": "Yoga and meditation moment 3"
+      },
+      {
+        "id": "everyday4",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755237925/Alina_1308_00083__crjjiu.png",
+        "alt": "Yoga and meditation moment 4"
+      },
+      {
+        "id": "everyday5",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755237923/Alina_1308_00084__mnsypg.png",
+        "alt": "Yoga and meditation moment 5"
+      },
+      {
+        "id": "everyday6",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755237923/Alina_1308_00079__gxyfdp.png",
+        "alt": "Yoga and meditation moment 6"
+      }
+    ]
   }
 ]
