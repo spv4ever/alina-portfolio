@@ -5,18 +5,18 @@
     "images": [
       {
         "id": "urban1",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205152/Alina_1308_00011__l0a8pd.png",
-        "alt": "Alina in an urban environment"
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755179332/Alina_1308_00023__hcohau.png",
+        "alt": "Alina in the beach"
       },
       {
         "id": "urban2",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205152/Alina_1308_00010__mtahyn.png",
-        "alt": "Alina's urban look"
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755179328/Alina_1308_00022__whyryy.png",
+        "alt": "Alina in the beach"
       },
       {
         "id": "urban3",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205152/Alina_1308_00013__jpt0qp.png",
-        "alt": "Alina in the city"
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755179325/Alina_1308_00027__jwqimg.png",
+        "alt": "Alina in the beach"
       }
     ]
   },
@@ -26,17 +26,17 @@
     "images": [
       {
         "id": "portrait1",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848391/alina_new_39_omy7d5.png",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848301/alina_new_10_qo04zq.png",
         "alt": "Coffe break with Alina"
       },
       {
         "id": "portrait2",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848236/ariana2_00042__aqwoir.png",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848300/alina_new_8_mx4tp1.png",
         "alt": "Natural light portrait of Alina"
       },
       {
         "id": "portrait3",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848220/ariana2_00003__tvhqn5.png",
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1754848302/alina_new_12_x8k6ig.png",
         "alt": "Good Morning with Alina"
       }
     ]
@@ -47,18 +47,18 @@
     "images": [
       {
         "id": "everyday1",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205412/NSFW_00021__bqgqu4.png",
-        "alt": "Raining day with Alina"
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755286058/Alina_1308_00068__gplvvr.png",
+        "alt": "Nature days with Alina"
       },
       {
         "id": "everyday2",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755205475/NSFW_00018__ipyztz.png",
-        "alt": "Raining day with Alina"
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755286058/Alina_1308_00067__a8oxfa.png",
+        "alt": "Nature days with Alina"
       },
       {
         "id": "everyday3",
-        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755206747/alina_3_11_lcvjqq.png",
-        "alt": "Weakup with Alina"
+        "url": "https://res.cloudinary.com/dirudaby9/image/upload/v1755286058/Alina_1308_00070__vxjfkd.png",
+        "alt": "Nature days with Alina"
       }
     ]
   },
