@@ -20,6 +20,11 @@
     "description": "Sun, sand and sea.",
     "tag": "Beach" 
   },
+  {
+    "title": "Private and Secret Album - Yoga and Meditation",
+    "description": "Yoga and meditation moments of Alina.",
+    "tag": "private-yoga-meditation"
+  },
    {
     "title": "Best Friends",
     "description": "Video Gallery of Alina and her best friends of Instagram.",
@@ -33,12 +38,6 @@
     "private": true,
     "password": "dywfkme",
     "tag": "pinklingerie"
-  },
-  {
-    "title": "Private and Secret Album - Yoga and Meditation",
-    "description": "Yoga and meditation moments of Alina.",
-    "private": true,
-    "password": "dywfkme",
-    "tag": "private-yoga-meditation"
   }
+  
 ]
