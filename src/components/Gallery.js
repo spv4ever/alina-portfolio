@@ -1,7 +1,7 @@
 // src/components/Gallery.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ProtectedImage from './ProtectedImage';
+import MediaDisplay from './MediaDisplay';
 
 // Helper para barajar un array (Algoritmo Fisher-Yates)
 const shuffleArray = (array) => {
@@ -14,68 +14,87 @@ const shuffleArray = (array) => {
 };
 
 const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
-  const [images, setImages] = useState([]);
+  const [assets, setAssets] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [totalImageCount, setTotalImageCount] = useState(0); // Para saber si mostrar el botón "Ver todas"
+  const [totalAssetCount, setTotalAssetCount] = useState(0);
 
   const { title, description, tag, private: isPrivate } = galleryData;
   const cloudName = 'dirudaby9';
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchAssets = async () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`https://res.cloudinary.com/${cloudName}/image/list/${tag}.json`);
-        if (!response.ok) throw new Error('Error loading the gallery.');
-        const data = await response.json();
+        const [imageRes, videoRes] = await Promise.all([
+          fetch(`https://res.cloudinary.com/${cloudName}/image/list/${tag}.json`),
+          fetch(`https://res.cloudinary.com/${cloudName}/video/list/${tag}.json`)
+        ]);
+
+        // Manejamos los errores 404 de Cloudinary: Si no hay un tipo de archivo, usamos un array vacío
+        const imageData = imageRes.ok ? await imageRes.json() : { resources: [] };
+        const videoData = videoRes.ok ? await videoRes.json() : { resources: [] };
         
-        setTotalImageCount(data.resources.length); // Guardamos el número total de imágenes
-
-        const shuffledResources = shuffleArray(data.resources);
-        const randomThree = shuffledResources.slice(0, 3);
-
-        const formattedImages = randomThree.map(image => ({
+        // Mapeamos imágenes y añadimos el tipo
+        const formattedImages = imageData.resources.map(image => ({
           id: image.public_id,
           url: `https://res.cloudinary.com/${cloudName}/image/upload/v${image.version}/${image.public_id}.${image.format}`,
-          alt: `Gallery image ${title}`
+          alt: `Imagen de la galería ${title}`,
+          resource_type: 'image'
         }));
 
-        setImages(formattedImages);
+        // Mapeamos videos y añadimos el tipo
+        const formattedVideos = videoData.resources.map(video => ({
+          id: video.public_id,
+          url: `https://res.cloudinary.com/${cloudName}/video/upload/v${video.version}/${video.public_id}.${video.format}`,
+          alt: `Video de la galería ${title}`,
+          resource_type: 'video'
+        }));
+
+        // Combinamos, barajamos y seleccionamos 3 aleatorios
+        const allAssets = [...formattedImages, ...formattedVideos];
+        setTotalAssetCount(allAssets.length);
+        
+        const shuffledAssets = shuffleArray(allAssets);
+        const randomThree = shuffledAssets.slice(0, 3);
+
+        setAssets(randomThree);
       } catch (err) {
-        setError(err.message);
+        // Capturamos errores de red generales
+        setError("Hubo un problema al cargar el contenido.");
       } finally {
         setLoading(false);
       }
     };
 
+    // Solo cargamos si es pública o si ya está desbloqueada
     if (!isPrivate || isUnlocked) {
-      fetchImages();
+      fetchAssets();
     } else {
-      setImages([]);
+      setAssets([]);
     }
   }, [tag, isUnlocked, isPrivate, cloudName, title]);
 
   const renderGalleryContent = () => {
-    if (loading) return <p>Loading images...</p>;
+    if (loading) return <p>Cargando imágenes...</p>;
     if (error) return <p>{error}</p>;
-    if (images.length === 0) return <p>There are no images in this gallery yet.</p>;
+    if (assets.length === 0) return <p>No hay contenido en esta galería todavía.</p>;
     
     return (
       <>
         <div className="image-grid">
-          {images.map(image => (
-            <div key={image.id} className="image-item">
-              <ProtectedImage src={image.url} alt={image.alt} />
+          {assets.map(asset => (
+            <div key={asset.id} className="image-item">
+              <MediaDisplay asset={asset} />
             </div>
           ))}
         </div>
-        {/* Solo mostramos el botón si hay más de 3 imágenes en total */}
-        {totalImageCount > 3 && (
+        {/* Solo mostramos el botón si hay más de 3 elementos en total */}
+        {totalAssetCount > 3 && (
           <div className="view-all-container">
             <Link to={`/gallery/${tag}`} className="view-all-link">
-              Ver todas ({totalImageCount})
+              Ver todo ({totalAssetCount})
             </Link>
           </div>
         )}
@@ -90,8 +109,8 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
       
       {isPrivate && !isUnlocked ? (
         <div className="locked-content">
-          <p>This gallery is private.</p>
-          <button onClick={() => onUnlock(galleryData)}>Unblock</button>
+          <p>Esta galería es privada.</p>
+          <button onClick={() => onUnlock(galleryData)}>Desbloquear</button>
         </div>
       ) : (
         renderGalleryContent()

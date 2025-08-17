@@ -1,57 +1,74 @@
 // src/pages/GalleryDetailPage.js
+
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ProtectedImage from '../components/ProtectedImage';
+import MediaDisplay from '../components/MediaDisplay';
 
 const GalleryDetailPage = () => {
-  // Hook de React Router para leer los parámetros de la URL (nuestro :tag)
   const { tag } = useParams();
-
-  const [images, setImages] = useState([]);
+  const [assets, setAssets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const cloudName = 'dirudaby9';
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchAssets = async () => {
       setLoading(true);
+      setError(null);
       try {
-        const response = await fetch(`https://res.cloudinary.com/${cloudName}/image/list/${tag}.json`);
-        if (!response.ok) throw new Error('No se pudo cargar la galería.');
-        const data = await response.json();
-        
-        const formattedImages = data.resources.map(image => ({
+        const [imageRes, videoRes] = await Promise.all([
+          fetch(`https://res.cloudinary.com/${cloudName}/image/list/${tag}.json`),
+          fetch(`https://res.cloudinary.com/${cloudName}/video/list/${tag}.json`)
+        ]);
+
+        // Manejamos los errores 404 de Cloudinary: Si no hay un tipo de archivo, usamos un array vacío
+        const imageData = imageRes.ok ? await imageRes.json() : { resources: [] };
+        const videoData = videoRes.ok ? await videoRes.json() : { resources: [] };
+
+        // Mapeamos imágenes y añadimos el tipo
+        const formattedImages = imageData.resources.map(image => ({
           id: image.public_id,
           url: `https://res.cloudinary.com/${cloudName}/image/upload/v${image.version}/${image.public_id}.${image.format}`,
-          alt: `Imagen de la galería ${tag}`
+          alt: `Imagen de la galería ${tag}`,
+          resource_type: 'image'
         }));
-        
-        setImages(formattedImages);
+
+        // Mapeamos videos y añadimos el tipo
+        const formattedVideos = videoData.resources.map(video => ({
+          id: video.public_id,
+          url: `https://res.cloudinary.com/${cloudName}/video/upload/v${video.version}/${video.public_id}.${video.format}`,
+          alt: `Video de la galería ${tag}`,
+          resource_type: 'video'
+        }));
+
+        // Combinamos ambos arrays en uno solo (NO barajamos ni cortamos aquí)
+        const allAssets = [...formattedImages, ...formattedVideos];
+        setAssets(allAssets);
+
       } catch (err) {
-        setError(err.message);
+        setError("Hubo un problema al cargar la galería.");
       } finally {
         setLoading(false);
       }
     };
 
     if (tag) {
-      fetchImages();
+      fetchAssets();
     }
-  }, [tag, cloudName]); // El efecto se ejecuta si el tag en la URL cambia
+  }, [tag, cloudName]);
 
   const renderContent = () => {
-    if (loading) return <p>Loading full gallery...</p>;
+    if (loading) return <p>Cargando galería completa...</p>;
     if (error) return <p>Error: {error}</p>;
-    if (images.length === 0) return <p>No images were found with the tag "{tag}".</p>;
+    if (assets.length === 0) return <p>No se encontró contenido con la etiqueta "{tag}".</p>;
     
     return (
       <div className="image-grid">
-        {images.map(image => (
-          <div key={image.id} className="image-item">
-            <ProtectedImage src={image.url} alt={image.alt} />
+        {assets.map(asset => (
+          <div key={asset.id} className="image-item">
+            <MediaDisplay asset={asset} />
           </div>
         ))}
       </div>
@@ -62,8 +79,9 @@ const GalleryDetailPage = () => {
     <>
       <Header />
       <div className="gallery-detail-container">
-        <h2>Complete Gallery: {tag}</h2>
-        <Link to="/" className="back-link">← Back to main page</Link>
+        <h2>Galería Completa: {tag}</h2>
+        <Link to="/" className="back-link">← Volver a la página principal</Link>
+        
         <div style={{ marginTop: '20px' }}>
           {renderContent()}
         </div>
