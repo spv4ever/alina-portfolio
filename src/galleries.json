@@ -20,7 +20,13 @@
     "description": "Sol, arena y mar.",
     "tag": "Beach" 
   },
-  
+  {
+    "title": "Private and Secret Album - Lingerie",
+    "description": "Special moments captured in a private album in lingerie.",
+    "private": true,
+    "password": "dywfkme",
+    "tag": "pinklingerie"
+  },
   {
     "title": "Private and Secret Album - Yoga and Meditation",
     "description": "Yoga and meditation moments of Alina.",
