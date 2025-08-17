@@ -43,9 +43,9 @@ const GalleryDetailPage = () => {
   }, [tag, cloudName]); // El efecto se ejecuta si el tag en la URL cambia
 
   const renderContent = () => {
-    if (loading) return <p>Cargando galería completa...</p>;
+    if (loading) return <p>Loading full gallery...</p>;
     if (error) return <p>Error: {error}</p>;
-    if (images.length === 0) return <p>No se encontraron imágenes con la etiqueta "{tag}".</p>;
+    if (images.length === 0) return <p>No images were found with the tag "{tag}".</p>;
     
     return (
       <div className="image-grid">
@@ -62,8 +62,8 @@ const GalleryDetailPage = () => {
     <>
       <Header />
       <div className="gallery-detail-container">
-        <h2>Galería Completa: {tag}</h2>
-        <Link to="/" className="back-link">← Volver a la página principal</Link>
+        <h2>Complete Gallery: {tag}</h2>
+        <Link to="/" className="back-link">← Back to main page</Link>
         <div style={{ marginTop: '20px' }}>
           {renderContent()}
         </div>

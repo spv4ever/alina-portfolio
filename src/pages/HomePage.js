@@ -29,7 +29,7 @@ const HomePage = () => {
       setModalOpen(false);
       setSelectedGallery(null);
     } else {
-      setPasswordError('Contraseña incorrecta. Inténtalo de nuevo.');
+      setPasswordError('Incorrect password. Please try again.');
     }
   };
 

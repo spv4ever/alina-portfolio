@@ -28,7 +28,7 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
       setError(null);
       try {
         const response = await fetch(`https://res.cloudinary.com/${cloudName}/image/list/${tag}.json`);
-        if (!response.ok) throw new Error('Error al cargar la galería.');
+        if (!response.ok) throw new Error('Error loading the gallery.');
         const data = await response.json();
         
         setTotalImageCount(data.resources.length); // Guardamos el número total de imágenes
@@ -39,7 +39,7 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
         const formattedImages = randomThree.map(image => ({
           id: image.public_id,
           url: `https://res.cloudinary.com/${cloudName}/image/upload/v${image.version}/${image.public_id}.${image.format}`,
-          alt: `Imagen de la galería ${title}`
+          alt: `Gallery image ${title}`
         }));
 
         setImages(formattedImages);
@@ -58,9 +58,9 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
   }, [tag, isUnlocked, isPrivate, cloudName, title]);
 
   const renderGalleryContent = () => {
-    if (loading) return <p>Cargando imágenes...</p>;
+    if (loading) return <p>Loading images...</p>;
     if (error) return <p>{error}</p>;
-    if (images.length === 0) return <p>No hay imágenes en esta galería todavía.</p>;
+    if (images.length === 0) return <p>There are no images in this gallery yet.</p>;
     
     return (
       <>
@@ -90,8 +90,8 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
       
       {isPrivate && !isUnlocked ? (
         <div className="locked-content">
-          <p>Esta galería es privada.</p>
-          <button onClick={() => onUnlock(galleryData)}>Desbloquear</button>
+          <p>This gallery is private.</p>
+          <button onClick={() => onUnlock(galleryData)}>Unblock</button>
         </div>
       ) : (
         renderGalleryContent()
