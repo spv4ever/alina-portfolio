@@ -40,7 +40,7 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
         const formattedImages = imageData.resources.map(image => ({
           id: image.public_id,
           url: `https://res.cloudinary.com/${cloudName}/image/upload/v${image.version}/${image.public_id}.${image.format}`,
-          alt: `Imagen de la galería ${title}`,
+          alt: `Gallery image ${title}`,
           resource_type: 'image'
         }));
 
@@ -48,7 +48,7 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
         const formattedVideos = videoData.resources.map(video => ({
           id: video.public_id,
           url: `https://res.cloudinary.com/${cloudName}/video/upload/v${video.version}/${video.public_id}.${video.format}`,
-          alt: `Video de la galería ${title}`,
+          alt: `Gallery video ${title}`,
           resource_type: 'video'
         }));
 
@@ -77,9 +77,9 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
   }, [tag, isUnlocked, isPrivate, cloudName, title]);
 
   const renderGalleryContent = () => {
-    if (loading) return <p>Cargando imágenes...</p>;
+    if (loading) return <p>Loading images...</p>;
     if (error) return <p>{error}</p>;
-    if (assets.length === 0) return <p>No hay contenido en esta galería todavía.</p>;
+    if (assets.length === 0) return <p>There is no content in this gallery yet.</p>;
     
     return (
       <>
@@ -109,8 +109,8 @@ const Gallery = ({ galleryData, onUnlock, isUnlocked }) => {
       
       {isPrivate && !isUnlocked ? (
         <div className="locked-content">
-          <p>Esta galería es privada.</p>
-          <button onClick={() => onUnlock(galleryData)}>Desbloquear</button>
+          <p>This gallery is private.</p>
+          <button onClick={() => onUnlock(galleryData)}>Unblock</button>
         </div>
       ) : (
         renderGalleryContent()

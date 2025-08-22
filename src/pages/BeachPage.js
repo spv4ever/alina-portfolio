@@ -33,7 +33,7 @@ const BeachPage = () => {
         const formattedImages = data.resources.map(image => ({
           id: image.public_id,
           url: `https://res.cloudinary.com/${cloudName}/image/upload/v${image.version}/${image.public_id}.${image.format}`,
-          alt: `Imagen de la galería ${tag}`
+          alt: `Gallery image ${tag}`
         }));
         
         setImages(formattedImages);
@@ -50,13 +50,13 @@ const BeachPage = () => {
   // Renderizado condicional basado en el estado
   const renderContent = () => {
     if (loading) {
-      return <p>Cargando galería...</p>;
+      return <p>Loading gallery...</p>;
     }
     if (error) {
-      return <p>Error al cargar la galería: {error}</p>;
+      return <p>Error loading gallery: {error}</p>;
     }
     if (images.length === 0) {
-      return <p>No se encontraron imágenes con la etiqueta "{tag}".</p>
+      return <p>No images were found with the tag "{tag}".</p>
     }
     return (
     <div className="image-grid">
@@ -74,9 +74,9 @@ const BeachPage = () => {
     <>
       <Header />
       <div className="beach-page-container">
-        <h2>Galería: {tag}</h2>
-        <p>Explora todas las fotos con la etiqueta "{tag}".</p>
-        <Link to="/" className="back-link">← Volver a la página principal</Link>
+        <h2>Gallery: {tag}</h2>
+        <p>Browse all photos tagged "{tag}".</p>
+        <Link to="/" className="back-link">← Back to main page</Link>
         
         <div style={{ marginTop: '20px' }}>
           {renderContent()}

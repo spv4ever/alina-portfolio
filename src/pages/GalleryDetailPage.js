@@ -31,7 +31,7 @@ const GalleryDetailPage = () => {
         const formattedImages = imageData.resources.map(image => ({
           id: image.public_id,
           url: `https://res.cloudinary.com/${cloudName}/image/upload/v${image.version}/${image.public_id}.${image.format}`,
-          alt: `Imagen de la galería ${tag}`,
+          alt: `Gallery image ${tag}`,
           resource_type: 'image'
         }));
 
@@ -39,7 +39,7 @@ const GalleryDetailPage = () => {
         const formattedVideos = videoData.resources.map(video => ({
           id: video.public_id,
           url: `https://res.cloudinary.com/${cloudName}/video/upload/v${video.version}/${video.public_id}.${video.format}`,
-          alt: `Video de la galería ${tag}`,
+          alt: `Gallery video ${tag}`,
           resource_type: 'video'
         }));
 
@@ -48,7 +48,7 @@ const GalleryDetailPage = () => {
         setAssets(allAssets);
 
       } catch (err) {
-        setError("Hubo un problema al cargar la galería.");
+        setError("There was a problem loading the gallery.");
       } finally {
         setLoading(false);
       }
@@ -60,9 +60,9 @@ const GalleryDetailPage = () => {
   }, [tag, cloudName]);
 
   const renderContent = () => {
-    if (loading) return <p>Cargando galería completa...</p>;
+    if (loading) return <p>Loading full gallery...</p>;
     if (error) return <p>Error: {error}</p>;
-    if (assets.length === 0) return <p>No se encontró contenido con la etiqueta "{tag}".</p>;
+    if (assets.length === 0) return <p>No content found with tag "{tag}".</p>;
     
     return (
       <div className="image-grid">
@@ -79,8 +79,8 @@ const GalleryDetailPage = () => {
     <>
       <Header />
       <div className="gallery-detail-container">
-        <h2>Galería Completa: {tag}</h2>
-        <Link to="/" className="back-link">← Volver a la página principal</Link>
+        <h2>Complete Gallery: {tag}</h2>
+        <Link to="/" className="back-link">← Back to main page</Link>
         
         <div style={{ marginTop: '20px' }}>
           {renderContent()}
