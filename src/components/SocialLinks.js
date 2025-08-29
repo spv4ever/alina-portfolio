@@ -7,6 +7,7 @@ const SocialLinks = () => {
       <a href="https://www.threads.com/@dollsimages" target="_blank" rel="noopener noreferrer">Threads</a>
       <a href="https://www.tiktok.com/@dollsimages" target="_blank" rel="noopener noreferrer">TikTok</a>
       <a href="https://x.com/dollimages" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      <a href="https://www.fanvue.com/alina-dolls" target="_blank" rel="noopener noreferrer">Fanvue - Extra Hot</a>
     </div>
   );
 };
